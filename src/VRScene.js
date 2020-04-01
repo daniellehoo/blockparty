@@ -17,6 +17,10 @@ class VRScene extends React.Component {
             id="skyTexture"
             src="https://cdn.aframe.io/a-painter/images/sky.jpg"
           />
+          <a-asset-item
+            id="dawningFont"
+            src="https://cdn.glitch.com/c719c986-c0c5-48b8-967c-3cd8b8aa17f3%2FdawningOfANewDayRegular.typeface.json?1490305922844"
+          ></a-asset-item>
         </a-assets>
         <Entity
           primitive="a-sky"
