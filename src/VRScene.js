@@ -1,5 +1,6 @@
 import "aframe";
 import "aframe-particle-system-component";
+import "aframe-text-geometry-component";
 import { Entity, Scene } from "aframe-react";
 import React from "react";
 import ReactDOM from "react-dom";
@@ -35,9 +36,10 @@ class VRScene extends React.Component {
           position="0, 2, 5"
         />
         <Entity
-          text={{ value: "Block Party!", align: "center" }}
-          position={{ x: 0, y: 2, z: -1 }}
-          material={{ color: "red" }}
+          rotation="0 0 5"
+          position="-9 3 -10"
+          text-geometry="value: BLOCKPARTY; font: #helvetikerBold; bevelEnabled: true; bevelSize: 0.05; bevelThickness: 0.05; curveSegments: 12; size: 2; height: 0;"
+          material="color:lavenderblush; metalness:1; roughness: 0; sphericalEnvMap: #pink;"
         />
       </Scene>
     );
