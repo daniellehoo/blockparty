@@ -4,22 +4,19 @@ import { Entity, Scene } from "aframe-react";
 import React from "react";
 import ReactDOM from "react-dom";
 
+// Components
+import Assets from './components/Assets';
+
 class VRScene extends React.Component {
   render() {
     return (
       <Scene inspector="https://cdn.jsdelivr.net/gh/aframevr/aframe-inspector@master/dist/aframe-inspector.min.js">
-        <a-assets>
-          <img src="https://img.gs/bbdkhfbzkk/stretch/https://i.imgur.com/25P1geh.png" id="grid" crossorigin="anonymous"/>
-          <img
-            id="skyTexture"
-            src="https://img.gs/bbdkhfbzkk/2048x2048,stretch/http://i.imgur.com/WqlqEkq.jpg"
-          />
-        </a-assets>
+        <Assets />
         <Entity
           primitive="a-sky"
+          src="#sky"
           height="2048"
           radius="5000"
-          src="#skyTexture"
           theta-length="180"
           width="2048"
           rotation="0 -90 0"
