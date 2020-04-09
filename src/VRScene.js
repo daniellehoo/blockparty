@@ -6,21 +6,14 @@ import ReactDOM from "react-dom";
 
 // Components
 import Assets from './components/Assets';
+import Sky from './components/Sky';
 
 class VRScene extends React.Component {
   render() {
     return (
       <Scene inspector="https://cdn.jsdelivr.net/gh/aframevr/aframe-inspector@master/dist/aframe-inspector.min.js">
         <Assets />
-        <Entity
-          primitive="a-sky"
-          src="#sky"
-          height="2048"
-          radius="5000"
-          theta-length="180"
-          width="2048"
-          rotation="0 -90 0"
-        />
+        <Sky />
         <Entity 
           primitive="a-plane"
           width="10000"
