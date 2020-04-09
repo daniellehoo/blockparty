@@ -1,5 +1,4 @@
 import React from "react";
-import "aframe";
 
 const Assets = () => {
 	return (
