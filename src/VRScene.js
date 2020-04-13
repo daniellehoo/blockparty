@@ -1,51 +1,47 @@
 import "aframe";
 import "aframe-particle-system-component";
+import "aframe-text-geometry-component";
 import { Entity, Scene } from "aframe-react";
 import React from "react";
 import ReactDOM from "react-dom";
+
+// Components
+import Assets from './components/Assets';
+import Sky from './components/Sky';
+import BouncyCastle from './components/BouncyCastle';
 
 class VRScene extends React.Component {
   render() {
     return (
       <Scene inspector="https://cdn.jsdelivr.net/gh/aframevr/aframe-inspector@master/dist/aframe-inspector.min.js">
-        <a-assets>
-          <img
-            id="groundTexture"
-            src="https://cdn.aframe.io/a-painter/images/floor.jpg"
-          />
-          <img
-            id="skyTexture"
-            src="https://cdn.aframe.io/a-painter/images/sky.jpg"
-          />
-          <a-asset-item
-            id="dawningFont"
-            src="https://cdn.glitch.com/c719c986-c0c5-48b8-967c-3cd8b8aa17f3%2FdawningOfANewDayRegular.typeface.json?1490305922844"
-          ></a-asset-item>
-        </a-assets>
-        <Entity
-          primitive="a-sky"
-          height="2048"
-          radius="30"
-          src="#skyTexture"
-          theta-length="90"
-          width="2048"
+        <Assets />
+        <Sky />
+        <BouncyCastle/>
+        <Entity 
+          primitive="a-plane"
+          width="10000"
+          height="10000"
+          rotation="-90 0 0"
+          color="#f600ff"
+          transparent="true"
+          material="src: #grid; repeat: 10000 10000; metalness: 0.6; roughness:0.6; transparent: true;"
         />
-
-        {/* <Entity
-          geometry={{ primitive: "box" }}
-          material={{ color: "red" }}
-          position={{ x: 0, y: 0, z: -5 }}
-        /> */}
         <Entity
           particle-system={{ preset: "stars" }}
           position={{ x: 0, y: 1, z: -16 }}
         />
-        <Entity light={{ type: "point" }} />
-        <Entity gltf-model={{ src: "virtualcity.gltf" }} />
+        <Entity 
+          primitive="a-light"
+          type="ambient"
+          intensity="1.5"
+          color="#ffaaff"
+          position="0, 2, 5"
+        />
         <Entity
-          text={{ value: "Block Party!", align: "center" }}
-          position={{ x: 0, y: 2, z: -1 }}
-          material={{ color: "red" }}
+          rotation="0 0 5"
+          position="-9 3 -10"
+          text-geometry="value: BLOCKPARTY; font: #helvetikerBold; bevelEnabled: true; bevelSize: 0.05; bevelThickness: 0.05; curveSegments: 12; size: 2; height: 0;"
+          material="color:lavenderblush; metalness:1; roughness: 0; sphericalEnvMap: #pink;"
         />
       </Scene>
     );
